@@ -1,4 +1,4 @@
-message(STATUS "Loading tests-gui module...")
+message(STATUS "Loading tests-gui app...")
 
 if (NOT CONFIGURED_ONCE)
 	set(APP_TESTS_GUI_SOURCE_DIR ${APP_TESTS_GUI_DIR}/src)
