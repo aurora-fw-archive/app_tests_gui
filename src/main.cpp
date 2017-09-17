@@ -49,5 +49,5 @@ ArSlot_t slot_MyGUIApp_on_open()
 int main(int argc, char * argv[])
 {
 	MyGUIApp = new GUI::Application("org.aurora.example", GUI::Application::NoneFlag, slot_MyGUIApp_on_open, argc, argv);
-	return MyGUIApp->AppStatus;
+	return MyGUIApp->appStatus;
 }
