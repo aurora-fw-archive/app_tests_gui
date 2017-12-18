@@ -20,10 +20,11 @@
 
 using namespace AuroraFW;
 
-GUI::Application *MyGUIApp;
-GUI::Window *FirstWindow;
-GUI::Label *HelloLabel;
-GUI::Button *TestButton;
+GUI::Application* MyGUIApp;
+Application* MyApp;
+GUI::Window* FirstWindow;
+GUI::Label* HelloLabel;
+GUI::Button* TestButton;
 
 afwslot slot_MyWindow_on_open()
 {
@@ -48,6 +49,7 @@ afwslot slot_MyGUIApp_on_open()
 
 int main(int argc, char * argv[])
 {
-	MyGUIApp = new GUI::Application("org.aurora.example", GUI::Application::NoneFlag, slot_MyGUIApp_on_open, argc, argv);
-	return MyGUIApp->appStatus;
+	MyApp = new Application([]{}, argc, argv);
+	MyGUIApp = new GUI::Application("org.aurora.example", GUI::Application::NoneFlag, slot_MyGUIApp_on_open);
+	return MyGUIApp->getStatus();
 }
