@@ -34,7 +34,7 @@ afwslot slot_MyWindow_on_open()
 	HelloLabel->setWrapMode(GUI::WrapMode::Word);
 	HelloLabel->setAlignment(GUI::AlignMode::Custom);
 	HelloLabel->setAlignment(0.7, 0.8);
-	GUI::AlignMode alignLabel = HelloLabel->getAlignment();
+	//GUI::AlignMode alignLabel = HelloLabel->getAlignment();
 	CLI::Log(CLI::Information,"X: ", HelloLabel->getXAlignment());
 	CLI::Log(CLI::Information,"Y: ", HelloLabel->getYAlignment());
 }
