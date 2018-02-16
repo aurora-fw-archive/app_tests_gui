@@ -49,7 +49,7 @@ afwslot slot_MyGUIApp_on_open()
 
 int main(int argc, char * argv[])
 {
-	MyApp = new Application([]{}, argc, argv);
+	MyApp = new Application(argc, argv);
 	MyGUIApp = new GUI::Application("org.aurora.example", GUI::Application::NoneFlag, slot_MyGUIApp_on_open);
 	return MyGUIApp->getStatus();
 }
