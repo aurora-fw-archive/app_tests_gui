@@ -26,7 +26,7 @@ GUI::Window* FirstWindow;
 GUI::Label* HelloLabel;
 GUI::Button* TestButton;
 
-afwslot slot_MyWindow_on_open()
+void slot_MyWindow_on_open()
 {
 	HelloLabel->setText("Hello, World!");
 	HelloLabel->setSelectable(true);
@@ -39,7 +39,7 @@ afwslot slot_MyWindow_on_open()
 	CLI::Log(CLI::Information,"Y: ", HelloLabel->getYAlignment());
 }
 
-afwslot slot_MyGUIApp_on_open()
+void slot_MyGUIApp_on_open()
 {
 	FirstWindow = new GUI::Window("First Window", 800, 600, GUI::Window::NonePosition, GUI::Window::ToplevelWindow);
 	TestButton = new GUI::Button(FirstWindow, "TestButton");
