@@ -20,36 +20,26 @@
 
 using namespace AuroraFW;
 
-GUI::Application* MyGUIApp;
-Application* MyApp;
-GUI::Window* FirstWindow;
-GUI::Label* HelloLabel;
-GUI::Button* TestButton;
-
-void slot_MyWindow_on_open()
-{
-	HelloLabel->setText("Hello, World!");
-	HelloLabel->setSelectable(true);
-	HelloLabel->setWrap(true);
-	HelloLabel->setWrapMode(GUI::WrapMode::Word);
-	HelloLabel->setAlignment(GUI::AlignMode::Custom);
-	HelloLabel->setAlignment(0.7, 0.8);
-	//GUI::AlignMode alignLabel = HelloLabel->getAlignment();
-	CLI::Log(CLI::Information,"X: ", HelloLabel->getXAlignment());
-	CLI::Log(CLI::Information,"Y: ", HelloLabel->getYAlignment());
-}
-
 void slot_MyGUIApp_on_open()
 {
-	FirstWindow = new GUI::Window("First Window", 800, 600, GUI::Window::NonePosition, GUI::Window::ToplevelWindow);
-	TestButton = new GUI::Button(FirstWindow, "TestButton");
-	HelloLabel = new GUI::Label(FirstWindow, "Hello World!");
-	FirstWindow->start(slot_MyWindow_on_open);
+	GUI::Window window("Example Window");
+	//GUI::Button TestButton(&FirstWindow, "TestButton");
+	GUI::Label helloLbl(&window, "Hello World!");
+	helloLbl.setText("Hello, World!");
+	helloLbl.setSelectable(true);
+	helloLbl.setWrap(true);
+	helloLbl.setWrapMode(GUI::WrapMode::Word);
+	helloLbl.setAlignment(GUI::AlignMode::BottomRight);
+	//helloLbl.setAlignment(0.7, 0.8);
+	CLI::Log(CLI::Information,"X: ", helloLbl.getXAlignment());
+	CLI::Log(CLI::Information,"Y: ", helloLbl.getYAlignment());
+
+	window.show();
 }
 
 int main(int argc, char * argv[])
 {
-	MyApp = new Application(argc, argv);
-	MyGUIApp = new GUI::Application("org.aurora.example", GUI::Application::NoneFlag, slot_MyGUIApp_on_open);
-	return MyGUIApp->getStatus();
+	Application MyApp(argc, argv);
+	GUI::Application MyGUIApp("org.aurora.example", GUI::Application::NoneFlag, slot_MyGUIApp_on_open);
+	return MyGUIApp.getStatus();
 }
